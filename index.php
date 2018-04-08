@@ -46,9 +46,10 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#first">Zadanie 1</a>
                     </li>
-                    <!--<li class="nav-item">
-                      <a class="nav-link js-scroll-trigger" href="#education">Education</a>
+                    <li class="nav-item">
+                      <a class="nav-link js-scroll-trigger" href="#second">Zadanie 2</a>
                     </li>
+                    <!--
                     <li class="nav-item">
                       <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
                     </li>
@@ -280,6 +281,33 @@
                     <p style="font-weight: bold;">Po vybratí súboru sa súbor nahrá a spracuje. Táto operácia môže trvať niekoľko sekúnd.</p>
                     <form id="form-first" action="/zadanie1.php" method="POST" enctype="multipart/form-data">
                         <input type="file" value="Vyber súbor" name="file" id="file">
+                    </form>
+                </div> 
+            </section> 
+            
+            <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="second">
+                <div class="my-auto"> 
+                    <h2 class="mb-5">Zadanie 2</h2>
+                    <p>
+                        Vytvorte program, ktory pomocou dynamickeho programovania riesi nasledovny variant problemu ruksaku:
+                    </p>
+                    <ul>
+                        <li>
+                            mame N predmetov, o kazdom predmete vieme jeho hodnotu, jeho vahu a to, ci je krehky alebo nie
+                        </li>
+                        <li>
+                            kazdy predmet mozeme do ruksaku bud vlozit, alebo nevlozit. Jeden predmet mozeme do ruksaku vlozit 
+                            najviac 1-krat a nemozeme brat casti predmetu (teda, ak sa rozhodneme predmet do ruksaku vlozit, 
+                            musime ho tam vlozit cely).
+                        </li>
+                    </ul>
+                    <p>
+                        Ulohou je najst take naplnenie ruksaku, aby ruksak nepresahoval vahu W, neobsahoval viac ako T krehkych 
+                        predmetov a aby mal maximalnu moznu hodnotu. Moze existovat viac takychto naplneni, staci, ak vas program najde jedno. 
+                    </p>
+                    <p style="font-weight: bold;">Po vybratí súboru sa súbor nahrá a spracuje. Táto operácia môže trvať niekoľko sekúnd.</p>
+                    <form id="form-second" action="/zadanie2.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" value="Vyber súbor" name="file2" id="file2">
                     </form>
                 </div> 
             </section> 
