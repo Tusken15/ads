@@ -47,7 +47,10 @@
                         <a class="nav-link js-scroll-trigger" href="#first">Zadanie 1</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link js-scroll-trigger" href="#second">Zadanie 2</a>
+                        <a class="nav-link js-scroll-trigger" href="#second">Zadanie 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#third">Zadanie 3</a>
                     </li>
                     <!--
                     <li class="nav-item">
@@ -65,7 +68,7 @@
 
         <div class="container-fluid p-0">
 
-            
+
             <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
                 <div class="my-auto">
                     <h1 class="mb-0">Patrik
@@ -113,7 +116,7 @@
                         </li>
                     </ul>
                     -->
-                    
+
                 </div>
             </section>
             <!--
@@ -259,7 +262,7 @@
                 </div>
             </section>
             -->
-            
+
             <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="first">
                 <div class="my-auto"> 
                     <h2 class="mb-5">Zadanie 1</h2>
@@ -284,7 +287,7 @@
                     </form>
                 </div> 
             </section> 
-            
+
             <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="second">
                 <div class="my-auto"> 
                     <h2 class="mb-5">Zadanie 2</h2>
@@ -308,6 +311,57 @@
                     <p style="font-weight: bold;">Po vybratí súboru sa súbor nahrá a spracuje. Táto operácia môže trvať niekoľko sekúnd.</p>
                     <form id="form-second" action="/zadanie2.php" method="POST" enctype="multipart/form-data">
                         <input type="file" value="Vyber súbor" name="file2" id="file2">
+                    </form>
+                </div> 
+            </section> 
+
+            <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="third">
+                <div class="my-auto"> 
+                    <h2 class="mb-5">Zadanie 3</h2>
+                    <p>
+                        Mame subor dictionary.txt. Subor obsahuje slova z nejakeho anglickeho textu spolu s frekvenciou ich
+                        vyskytu. Slova obsahuju iba male pismena anglickej abecedy, t.j. ASCII znaky 97 az 122. Jeden riadok
+                        suboru obsahuje frekvenciu vyskytu slova a samotne slovo. Frekvencia a slovo su oddelene
+                        medzerou. Slova su v subore usporiadane podla frekvencie vyskytu: slovo s najvyssou frekvenciou je
+                        v prvom riadku, slovo s najnizsou frekvenciou vyskytu je v poslednom riadku.                    
+                    </p>
+                    <p>
+                        Vasou ulohou je zostrojit optimalny binarny vyhladavaci strom pre vyhladavanie slov s frekvenciou
+                        vyskytu ostro vacsou ako 50 000. Dalej budem pouzivat terminy a notaciu z kapitoly 15.5 z knihy
+                        Introduction to Algorithms od autorov Cormen, Leiserson, Rivest a Stein (odkaz na tuto knihu sme
+                        Vam posielali na zaciatku semestra). Pri vytvarani stromu postupujte nasledovne: 
+                    </p>
+                    <ul>
+                        <li>
+                            kluce budu slova s frekvenciou vyskytu ostro vacsou ako 50 000.
+                        </li>
+                        <li>
+                            na slovach uvazujte lexikograficke usporiadanie
+                        </li>
+                        <li>
+                            pravdepodobnost p_i, ze vyhladavame kluc k_i, vypocitajte ako podiel frekvencie vyskytu
+                            slova k_i a suctu frekvencii vyskytu vsetkych slov v dokumente dictionary.txt. 
+                        </li>
+                        <li>
+                            Uvazujeme, ze budeme vyhladavat iba slova z dokumentu dictionary.txt. Pravdepodobnost
+                            q_i, ze vyhladavame slovo, ktore je v lexikografickom usporiadani medzi k_i a k_{i+1}, preto
+                            vypocitajte ako podiel suctu frekvencii vyskytu tych slov z dictionary.txt, ktore su v
+                            lexikografickom usporiadani medzi k_i a k_{i+1}, a suctu frekvencii vyskytu vsetkych slov v
+                            dictionary.txt. Analogicky vypocitajte aj pravdepodobnosti q_0 a q_n.
+
+                        </li>
+                    </ul>
+                    <p>
+                        Okrem toho, vytvorte funkciu pocet_porovnani(). Vstupom do funkcie bude retazec. Funkcia vrati
+                        pocet porovnani, ktore sa vykonaju pocas hladania vstupneho retazca v zostrojenom optimalnom
+                        binarnom vyhladavacom strome. 
+                    </p>
+                    <p style="font-weight: bold;">
+                        Vstup pre retazec:
+                    </p>
+                    <form id="form-third" action="/zadanie3.php" method="POST">
+                        <input type="text" name="input3" id="input3">
+                        <button id="button3">Zisti pocet porovnani</button>
                     </form>
                 </div> 
             </section> 
@@ -360,7 +414,7 @@
 
         <!-- Custom scripts for this template -->
         <script src="js/resume.min.js"></script>
-         <script src="js/core.js"></script>
+        <script src="js/core.js"></script>
 
     </body>
 
