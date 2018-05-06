@@ -7,11 +7,15 @@ $("#file2").on('change', function () {
 });
 
 $("#button3").on('click', function () {
-//    $("#form-third").submit();
     $.ajax({
         url: "/zadanie3.php",
-        data: $('#input3')
-    }).done(function () {
-        console.log('super');
+        type: "POST",
+        dataType: "json",
+        data: {
+            input: $('#input3').val()
+        },
+        success: function (data) {
+            $("#result3").text(data.text);
+        }
     });
 }); 

@@ -359,10 +359,11 @@
                     <p style="font-weight: bold;">
                         Vstup pre retazec:
                     </p>
-                    <form id="form-third" action="/zadanie3.php" method="POST">
+                    <form id="form-third">
                         <input type="text" name="input3" id="input3">
-                        <button id="button3">Zisti pocet porovnani</button>
+                        <p style="display: inline-block" id="result3">&nbsp;</p>
                     </form>
+                    <button id="button3">Zisti pocet porovnani</button>
                 </div> 
             </section> 
 

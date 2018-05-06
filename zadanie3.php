@@ -18,12 +18,36 @@ class Zadanie3 {
         ini_set('memory_limit',         '1024MB');
         ini_set('max_execution_time',   600);
         
-        $this->word = $_POST['input3'];
+        $input = $_POST['input'];
         
-        $this->loadDictionary();
-        $this->createProbability();
-        $this->createTree();
-        $this->getCompareCount('might');
+        if(empty($input)) {
+            $out['text'] = 'Zadajte hladane slovo';
+            echo json_encode($out);
+            exit;
+        }
+        
+        if(isset($_SESSION['keys']) && isset($_SESSION['keyCount']) && isset($_SESSION['words']) && isset($_SESSION['wordsCount'])) {
+            $this->keys         = $_SESSION['keys'];
+            $this->keyCount     = $_SESSION['keyCount'];
+            $this->words        = $_SESSION['words'];
+            $this->wordsCount   = $_SESSION['wordsCount'];
+        } else {
+            $this->loadDictionary();
+        }
+        
+        if(isset($_SESSION['probability'])) {
+            $this->probability = $_SESSION['probability'];
+        } else {
+            $this->createProbability();
+        }
+        
+        if(isset($_SESSION['root'])) {
+            $this->root = $_SESSION['root'];
+        } else {
+            $this->createTree();
+        }
+        
+        $this->getCompareCount($input);
     }
     
     private function getCompareCount($word) {
@@ -31,8 +55,9 @@ class Zadanie3 {
         $i          = 0;
         $j          = $this->keyCount;
         $continue   = true;
+        $notFound   = false;
         
-        while($continue) {
+        while($continue && !$notFound) {
             $pos    = $this->root[$i][$j];
             $curr   = key(array_slice($this->keys, $pos-1, 1));
             $cCount++;
@@ -47,20 +72,26 @@ class Zadanie3 {
             
             if($i == $j) {
                 $cCount++;
-                $continue = false;
-                echo 'neexistuje';
-                exit;
+                $notFound = true;
             }
-            echo $i.' '.$j.'<br>';  
         }
         
-        echo 'Pocet porovnani: '.$cCount;
+        $out = [];
+        $out['text'] = 'Pocet porovnani pre slovo "'.$word.'": '.$cCount;
+        
+        if($notFound) {
+            $out['text'] .= ', ale slovo neexistuje v slovniku';
+        }
+        
+        echo json_encode($out);
+        exit;
     }
     
     private function createProbability() {
         foreach($this->keys AS $key => $value) {
             $this->probability[] = $value/$this->wordsCount;
         }
+        $_SESSION['probability'] = $this->probability;
     }
     
     private function createTree() {
@@ -100,6 +131,8 @@ class Zadanie3 {
                 }
             }
         }
+        
+        $_SESSION['root'] = $this->root;
     }
      
     private function loadDictionary() {
@@ -122,6 +155,11 @@ class Zadanie3 {
         
         ksort($this->words);
         ksort($this->keys);
+        
+        $_SESSION['keys']       = $this->keys;
+        $_SESSION['keyCount']   = $this->keyCount;
+        $_SESSION['words']      = $this->words;
+        $_SESSION['wordsCount'] = $this->wordsCount;
     }
 
 }
