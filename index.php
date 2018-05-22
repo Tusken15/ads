@@ -52,6 +52,9 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#third">Zadanie 3</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#fourth">Zadanie 4</a>
+                    </li>
                     <!--
                     <li class="nav-item">
                       <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
@@ -364,6 +367,33 @@
                         <p style="display: inline-block" id="result3">&nbsp;</p>
                     </form>
                     <button id="button3">Zisti pocet porovnani</button>
+                </div> 
+            </section> 
+
+            <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="fourth">
+                <div class="my-auto"> 
+                    <h2 class="mb-5">Zadanie 4</h2>
+                    <p>
+                        Napíšte program, ktorý načíta vstupný súbor s logickou formulou v konjunktívnej normálnej forme (KNF,
+                        angl,. CNF) v (zjednodušenom) DIMACS formáte (v jednotlivých klauzulách sú povolené najviac 2 literály
+                        - môžete predpokladať korektný vstup). Program s polynomiálnou zložitosťou zistí, či je vstupná formula
+                        splniteľná alebo nie je splniteľná (a vypíše na obrazovku SPLNITEĽNÁ/NESPLNITEĽNÁ). V prípade, že je
+                        vstupná formula splniteľná, program vypíše pre jednotlivé použité booleovské premenné pravdivostné
+                        hodnoty (PRAVDA/NEPRAVDA), po ktorých dosadení za príslušné booleovské premenné bude formula
+                        mať hodnotu PRAVDA. Váš program musí využívať algoritmus z dôkazu tvrdenia 2SAT∈P.
+                    </p>
+                    <p>
+                        Na prvom riadku sú dve celé kladné čísla (nbvar nbclauses) oddelené medzerou, kde nbvar určuje počet
+                        použitých booleovských premenných a nbclauses určuje počet klauzúl vo formule. Na ďalších (nbclauses)
+                        riadkoch sú zapísané jednotlivé klauzuly. Literály v nich sa zapisujú číslom booleovskej premennej (od 1
+                        po nbvar), negovaná booleovská premenná má pred svojím poradovým číslom znak -. Klauzula je
+                        ukončená znakom 0.
+                    </p>
+                    <p style="font-weight: bold;">Po vybratí súboru sa súbor nahrá a spracuje. Táto operácia môže trvať niekoľko sekúnd.</p>
+                    <form id="form-fourth" enctype="multipart/form-data">
+                        <input type="file" value="Vyber súbor" name="file4" id="file4">
+                    </form>
+                     <p style="display: inline-block" id="result4">&nbsp;</p>
                 </div> 
             </section> 
 
